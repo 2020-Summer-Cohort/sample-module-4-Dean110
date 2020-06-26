@@ -46,15 +46,20 @@ describe("ClickCounter is a class that counts clicks and turns them into donuts,
         });
     });
     describe("FEATURE : Ensure that there are enough clicks to buy a AutoClicker", () => {
-        /*
-        #### FEATURE : Ensure that there are enough clicks to buy a _Clicking Companion_.
-        > As the game designer, I want to ensure that players have to put the game into a proper state to be able to purchase a _Clicking Companion_, so that the game has a challenge.
-        - Prevent the _Clicking Companion_ count from going up if there are not enough clicks to purchase a _Companion_.
-        */
         it("Given a donut count of 99, attempting to buy a AutoClicker will throw an error.", () => {
             recordClicks(99, underTest);
             expect(() => underTest.purchaseAutoClicker()).toThrow(new Error("Insufficient donuts to buy AutoClicker."))
         })
+    });
+    describe("FEATURE : The amount of AutoClickers affect the amount of donuts added when an 'execute auto clicks' event is called.", () => {
+        it("Given a autoClick count of one, the donut count should go up by one when by one when the \`recordAutoClicks\` method is called.", () => {
+            recordClicks(100, underTest);
+            underTest.purchaseAutoClicker();
+            const preAutoClickDonutCount = underTest.getDonutCount();
+            underTest.recordAutoClicks();
+            const postAutoClickDonutCount = underTest.getDonutCount();
+            expect(postAutoClickDonutCount - preAutoClickDonutCount).toBe(1);
+        });
     });
 });
 

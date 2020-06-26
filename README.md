@@ -55,23 +55,23 @@ This iteration covers project setup and starting the creation of the game.  Are 
 
 #### FEATURE : Have a way to count clicks.
 > As a user, I want to know how many clicks I have clicked, so that I know what my score is.
-- Can record a click.
-- Can retrieve a click count.
+- [x] Can record a click.
+- [x] Can retrieve a click count.
 
 #### FEATURE : Be able to purchase the first _Clicking Companion_ with 100 clicks from your click count.
 > As a user, I want to be able to purchase _Clicking Companions_, so that I don't have to keep clicking a button all day.
-- Can retrieve a _Clicking Companion_ count.
-- Can add to the _Clicking Companion_ count.
-- Subtract the amount of the _Clicking Companion_ cost from your click count.
+- [x] Can retrieve a _Clicking Companion_ count.
+- [x] Can add to the _Clicking Companion_ count.
+- [x] Subtract the amount of the _Clicking Companion_ cost from your click count.
 
 #### FEATURE : The cost of each _Clicking Companion_ will go up with each purchase.
 > As a game designer, I want the game to become more difficult as the game progresses, so that users will continue to play the game.
-- Increase the cost of the second _Clicking Companion_ by an additional ten percent to 110.
-- Increase the cost of every additional _Clicking Companion_ by an additional ten percent.
+- [x] Increase the cost of the second _Clicking Companion_ by an additional ten percent to 110.
+- [x] Increase the cost of every additional _Clicking Companion_ by an additional ten percent.
 
 #### FEATURE : Ensure that there are enough clicks to buy a _Clicking Companion_.
 > As the game designer, I want to ensure that players have to put the game into a proper state to be able to purchase a _Clicking Companion_, so that the game has a challenge.
-- Prevent the _Clicking Companion_ count from going up if there are not enough clicks to purchase a _Companion_.
+- [x] Prevent the _Clicking Companion_ count from going up if there are not enough clicks to purchase a _Companion_.
 
 #### FEATURE : The amount of _Clicking Companions_ affect the amount of clicks added when an 'Add auto clicks' event is called.
 > As a user, I want to be able to purchase _Clicking Companions_, so that I don't have to keep clicking a button all day.

@@ -39,6 +39,10 @@ class ClickCounter {
         this.increaseAutoClickerCost();
     }
 
+    recordAutoClicks() {
+        this._donutCount += this._autoClickerCount;
+    }
+
     recordClick() {
         this._donutCount++;
     }
