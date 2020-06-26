@@ -10,12 +10,6 @@ describe("ClickCounter is a class that counts clicks and turns them into donuts,
             });
         }
     });
-    /*
-    > As a user, I want to be able to purchase _Auto Clickers_, so that I don't have to keep clicking a button all day.0
-    - Can retrieve a _Clicking Companion_ count.
-    - Can add to the _Clicking Companion_ count.
-    - Subtract the amount of the _Clicking Companion_ cost from your click count.
-    */
     describe("FEATURE : Be able to purchase the first AutoClicker with 100 donuts from your donut count.", () => {
         it("New ClickCounter objects should have 0 AutoClickers.", () => {
             expect(underTest.getAutoClickerCount()).toBe(0);
@@ -36,7 +30,26 @@ describe("ClickCounter is a class that counts clicks and turns them into donuts,
             expect(underTest.getAutoClickerCount()).toBe(1);
         })
     });
-
+    describe("FEATURE : The cost of each _Clicking Companion_ will go up with each purchase.", () => {
+        /*
+        > As a game designer, I want the game to become more difficult as the game progresses, so that users will continue to play the game.
+        - Increase the cost of the second _Clicking Companion_ by an additional ten percent to 110.
+        - Increase the cost of every additional _Clicking Companion_ by an additional ten percent.
+        */
+        it("Given a donut count of 210, purchasing 2 clickers should decrease the donut count to 0.", () => {
+            recordClicks(210, underTest);
+            underTest.purchaseAutoClicker();
+            underTest.purchaseAutoClicker();
+            expect(underTest.getDonutCount()).toBe(0);
+        });
+        it("Given a donut count of 331, purchasing 3 clickers should decrease the donut count to 0.", () => {
+            recordClicks(331, underTest);
+            underTest.purchaseAutoClicker();
+            underTest.purchaseAutoClicker();
+            underTest.purchaseAutoClicker();
+            expect(underTest.getDonutCount()).toBe(0);
+        });
+    });
 });
 
 function expectOneToOneClickToDonutCount(expectedClickCount, clickCounter) {
