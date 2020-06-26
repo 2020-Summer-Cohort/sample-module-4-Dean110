@@ -30,12 +30,7 @@ describe("ClickCounter is a class that counts clicks and turns them into donuts,
             expect(underTest.getAutoClickerCount()).toBe(1);
         })
     });
-    describe("FEATURE : The cost of each _Clicking Companion_ will go up with each purchase.", () => {
-        /*
-        > As a game designer, I want the game to become more difficult as the game progresses, so that users will continue to play the game.
-        - Increase the cost of the second _Clicking Companion_ by an additional ten percent to 110.
-        - Increase the cost of every additional _Clicking Companion_ by an additional ten percent.
-        */
+    describe("FEATURE : The cost of each AutoClicker will go up with each purchase.", () => {
         it("Given a donut count of 210, purchasing 2 clickers should decrease the donut count to 0.", () => {
             recordClicks(210, underTest);
             underTest.purchaseAutoClicker();
@@ -49,6 +44,17 @@ describe("ClickCounter is a class that counts clicks and turns them into donuts,
             underTest.purchaseAutoClicker();
             expect(underTest.getDonutCount()).toBe(0);
         });
+    });
+    describe("FEATURE : Ensure that there are enough clicks to buy a AutoClicker", () => {
+        /*
+        #### FEATURE : Ensure that there are enough clicks to buy a _Clicking Companion_.
+        > As the game designer, I want to ensure that players have to put the game into a proper state to be able to purchase a _Clicking Companion_, so that the game has a challenge.
+        - Prevent the _Clicking Companion_ count from going up if there are not enough clicks to purchase a _Companion_.
+        */
+        it("Given a donut count of 99, attempting to buy a AutoClicker will throw an error.", () => {
+            recordClicks(99, underTest);
+            expect(() => underTest.purchaseAutoClicker()).toThrow(new Error("Insufficient donuts to buy AutoClicker."))
+        })
     });
 });
 

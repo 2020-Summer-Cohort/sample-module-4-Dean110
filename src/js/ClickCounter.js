@@ -18,6 +18,10 @@ class ClickCounter {
         return this._donutCount;
     }
 
+    hasAvailableDonutCountToBuy(cost) {
+        return this._donutCount >= cost;
+    }
+
     increaseAutoClickerCost() {
         this._autoClickerCost += this._autoClickerCost * .1;
     }
@@ -27,6 +31,9 @@ class ClickCounter {
     }
 
     purchaseAutoClicker() {
+        if (!this.hasAvailableDonutCountToBuy(this._autoClickerCost)) {
+            throw new Error("Insufficient donuts to buy AutoClicker.");
+        }
         this.deductCostOfAutoClicker();
         this.increaseAutoClickerCount();
         this.increaseAutoClickerCost();
