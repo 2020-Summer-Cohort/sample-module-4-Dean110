@@ -55,13 +55,28 @@ describe("ClickCounter is a class that counts clicks and turns them into donuts,
         it("Given a autoClick count of one, the donut count should go up by one when by one when the \`recordAutoClicks\` method is called.", () => {
             recordClicks(100, underTest);
             underTest.purchaseAutoClicker();
-            const preAutoClickDonutCount = underTest.getDonutCount();
-            underTest.recordAutoClicks();
-            const postAutoClickDonutCount = underTest.getDonutCount();
-            expect(postAutoClickDonutCount - preAutoClickDonutCount).toBe(1);
+            expectDonutsFromAutoClicker(underTest, 1);
+        });
+        it("Given a autoClick count of one, the donut count should go up by one when by one when the \`recordAutoClicks\` method is called.", () => {
+            recordClicks(100, underTest);
+            underTest.purchaseAutoClicker();
+            expectDonutsFromAutoClicker(underTest, 2);
         });
     });
 });
+
+function expectDonutsFromAutoClicker(underTest, autoClickCount) {
+    const preAutoClickDonutCount = underTest.getDonutCount();
+    recordAutoClicks(autoClickCount, underTest);
+    const postAutoClickDonutCount = underTest.getDonutCount();
+    expect(postAutoClickDonutCount - preAutoClickDonutCount).toBe(autoClickCount);
+}
+
+function recordAutoClicks(count, underTest) {
+    for (let i = 0; i < count; i++) {
+        underTest.recordAutoClicks();
+    }
+}
 
 function expectOneToOneClickToDonutCount(expectedClickCount, clickCounter) {
     recordClicks(expectedClickCount, clickCounter);
