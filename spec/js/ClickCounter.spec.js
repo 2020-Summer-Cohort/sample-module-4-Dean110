@@ -63,6 +63,72 @@ describe("ClickCounter is a class that counts clicks and turns them into donuts,
             expectDonutsFromAutoClicker(underTest, 2);
         });
     });
+    describe("FEATURE : Be able to purchase the first _Donut Multiplier_ with 10 clicks from your click count.", () => {
+        it("Given a donut count of 10, purchasing 1 Donut Multiplier will increase the Donut Multiplier count to 1.", () => {
+            recordClicks(10, underTest);
+            underTest.purchaseDonutMultiplier();
+            expect(underTest.getDonutMultiplierCount()).toBe(1);
+        });
+        it("Given a donut count of 10, purchasing 1 Donut Multiplier will decrease the donut count to 0", () => {
+            recordClicks(10, underTest);
+            underTest.purchaseDonutMultiplier();
+            expect(underTest.getDonutCount()).toBe(0);
+        });
+        it("Given a donut count of 21, purchasing 2 Donut Multipliers will increase the Donut Multiplier count to 2.", () => {
+            recordClicks(21, underTest);
+            underTest.purchaseDonutMultiplier();
+            underTest.purchaseDonutMultiplier();
+            expect(underTest.getDonutMultiplierCount()).toBe(2);
+        });
+    });
+    describe("FEATURE : The cost of each Donut Multiplier will go up with each purchase.", () => {
+        it("Given a donut count of 21, purchasing 2 Donut Multipliers will decrease the donut count to 0.", () => {
+            recordClicks(21, underTest);
+            underTest.purchaseDonutMultiplier();
+            underTest.purchaseDonutMultiplier();
+            expect(underTest.getDonutCount()).toBe(0);
+        });
+        it("Given a donut count of 34, purchasing 3 Donut Multipliers will increase the donut count to 1.", () => {
+            recordClicks(34, underTest);
+            underTest.purchaseDonutMultiplier();
+            underTest.purchaseDonutMultiplier();
+            underTest.purchaseDonutMultiplier();
+            expect(underTest.getDonutCount()).toBe(1);
+        });
+    });
+    describe("FEATURE : Ensure that there are enough clicks to buy a Donut Multiplier.", () => {
+        it("Given a donut count of 9, attempting to purchase a Donut Multiplier will throw an error.", () => {
+            recordClicks(9, underTest);
+            expect(() => underTest.purchaseDonutMultiplier()).toThrow(new Error("Insufficient donuts to buy Donut Multiplier."))
+        })
+    });
+    describe('FEATURE : The first Donut Multiplier should increase the value of a click 1.2x.', () => {
+        it('Given a donut count of 0 and 1 Donut Multiplier, 10 clicks should produce 12 donuts.', () => {
+            recordClicks(10, underTest);
+            underTest.purchaseDonutMultiplier();
+            recordClicks(10, underTest);
+            expect(underTest.getDonutCount()).toBe(12);
+        });
+    });
+    describe('FEATURE : The amount the subsequent Donut Multipliers click bonus will go up exponentially.', () => {
+        it('Given a donut count of 0 and 2 Donut Multipliers, 10 clicks should produce 14 donuts.', () => {
+            recordClicks(21, underTest);
+            underTest.purchaseDonutMultiplier();
+            underTest.purchaseDonutMultiplier();
+            recordClicks(10, underTest);
+            expect(underTest.getDonutCount()).toBe(14);
+        });
+    });
+    describe('FEATURE : The Donut Multipliers click bonus will apply to clicks from the Click Companions.', () => {
+        it('Given a donut count of 0, two autoClickers, and 1 Donut Multiplier; 10 calls to \`recordAutoClicks\` method should produce 24 donuts.', () => {
+            recordClicks(220, underTest);
+            underTest.purchaseAutoClicker();
+            underTest.purchaseAutoClicker();
+            underTest.purchaseDonutMultiplier();
+            recordAutoClicks(10, underTest);
+            expect(underTest.getDonutCount()).toBe(24);
+        });
+    });
 });
 
 function expectDonutsFromAutoClicker(underTest, autoClickCount) {
@@ -72,9 +138,9 @@ function expectDonutsFromAutoClicker(underTest, autoClickCount) {
     expect(postAutoClickDonutCount - preAutoClickDonutCount).toBe(autoClickCount);
 }
 
-function recordAutoClicks(count, underTest) {
+function recordAutoClicks(count, clickCounter) {
     for (let i = 0; i < count; i++) {
-        underTest.recordAutoClicks();
+        clickCounter.recordAutoClicks();
     }
 }
 

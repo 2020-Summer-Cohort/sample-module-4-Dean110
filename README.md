@@ -3,34 +3,34 @@
 ###### A tribute to [Cookie Clicker](https://orteil.dashnet.org/cookieclicker/)
 
 ## The Scenario - Welcome to Coo Coo Computing Challengers!
-You have been contracted by Coo Coo Computing Challengers to take a concept, Click Counter Calamity, from the drawing board to the browser. Coo Coo Computing Challengers is a company that spends more time creating alliterative puns than actual writing software and they need our help.  They want you to create a webpage that keeps track of user clicks, but they have some strange requirements for _'Clicking Companions'_ and _'Collective Culmination Compounders'_.  They have a list of requirements for us, but they are too busy trying to change the words in their company's mission statement to words that start with the letter 'C' exclusively to give us guidance on how to implement these requirements.
+You have been contracted by Coo Coo Computing Challengers to take a concept, Click Counter Calamity, from the drawing board to the browser. Coo Coo Computing Challengers is a company that spends more time creating alliterative puns than actual writing software and they need our help.  They want you to create a webpage that keeps track of user clicks, but they have some strange requirements for _'AutoClickers'_ and _'Donut Multipliers'_.  They have a list of requirements for us, but they are too busy trying to change the words in their company's mission statement to words that start with the letter 'C' exclusively to give us guidance on how to implement these requirements.
 
 ## The Application Requirements
 - [ ] You must create a website that tracks the amount of times the clicking button has been clicked.
     - [ ] Create a button in the browser to click.
-    - [ ] Create a section on the page that interacts with the _'Clicking Companions'_.
-      - [ ] Displays the amount of _Clicking Companions_ purchased.
-      - [ ] Provides a button to purchase _Clicking Companions_.
-      - [ ] Button is disabled when you do not have enough clicks to buy a _Clicking Companion_.
-    - [ ] Create a section on the page that interacts with the _'Collective Culmination Compounder'_.
-      - [ ] Displays the amount of _Collective Culmination Compounder_ purchased.
-      - [ ] Provides a button to purchase _Collective Culmination Compounder_.
-      - [ ] Button is disabled when you do not have enough clicks to buy a _Collective Culmination Compounder_.
+    - [ ] Create a section on the page that interacts with the _'AutoClickers'_.
+      - [ ] Displays the amount of _AutoClickers_ purchased.
+      - [ ] Provides a button to purchase _AutoClickers_.
+      - [ ] Button is disabled when you do not have enough clicks to buy a _AutoClicker_.
+    - [ ] Create a section on the page that interacts with the _'Donut Multiplier'_.
+      - [ ] Displays the amount of _Donut Multiplier_ purchased.
+      - [ ] Provides a button to purchase _Donut Multiplier_.
+      - [ ] Button is disabled when you do not have enough clicks to buy a _Donut Multiplier_.
 - [ ] Have a function that returns the click count.
-- [ ] You must implement a feature called _'Clicking Companions'_.
-    - [ ] _Clicking Companions_ are bought with clicks from your click total.
-    - [ ] Each _Clicking Companion_ that is purchased increases the cost of the next _Clicking Companion_.
+- [ ] You must implement a feature called _'AutoClickers'_.
+    - [ ] _AutoClickers_ are bought with clicks from your click total.
+    - [ ] Each _AutoClicker_ that is purchased increases the cost of the next _AutoClicker_.
     - [ ] The initial cost should be around 100 clicks.
-    - [ ] For each _Clicking Companion_ that has been purchased the count of clicks goes up by one every second.  This is a cumulative effect, so having 100 _Clicking Companions_ would result in having 100 clicks automatically added to the total every second.
-      - [ ] Have a function that adds the amount of _Clicking Companions_ to the click total.
+    - [ ] For each _AutoClicker_ that has been purchased the count of clicks goes up by one every second.  This is a cumulative effect, so having 100 _AutoClickers_ would result in having 100 clicks automatically added to the total every second.
+      - [ ] Have a function that adds the amount of _AutoClickers_ to the click total.
       - [ ] Inside your game loop, call the above function every second.
-- [ ] You must implement a feature called _'Collective Culmination Compounders'_.
-  - [ ] _Collective Culmination Compounders_ are bought with clicks from your click total.
-  - [ ] Each _Collective Culmination Compounder_ that is purchased increases the cost of the next _Collective Culmination Compounder_.
+- [ ] You must implement a feature called _'Donut Multipliers'_.
+  - [ ] _Donut Multipliers_ are bought with clicks from your click total.
+  - [ ] Each _Donut Multiplier_ that is purchased increases the cost of the next _Donut Multiplier_.
   - [ ] The initial cost should be around 10 clicks.
-  - [ ] The first _Collective Culmination Compounder_ increases the value of a click from `1x` to `1.2x`.
-  - [ ] Every subsequent _Collective Culmination Compounder_ increases the value of a click exponentially.  For example, the second _Collective Culmination Compounder_ will increase the value of a click to `1.2x * 1.2x` or `1.44x`.
-- [ ] You must be able to reset the game state.  This action should reset the game to zero clicks, zero _Clicking Companions_, and zero _Collective Culmination Compounders_.
+  - [ ] The first _Donut Multiplier_ increases the value of a click from `1x` to `1.2x`.
+  - [ ] Every subsequent _Donut Multiplier_ increases the value of a click exponentially.  For example, the second _Donut Multiplier_ will increase the value of a click to `1.2x * 1.2x` or `1.44x`.
+- [ ] You must be able to reset the game state.  This action should reset the game to zero clicks, zero _AutoClickers_, and zero _Donut Multipliers_.
 - [ ] This website also has some other requirements:
   - [ ] Use semantic html and BEM when writing your html so that in the future we have a solid base to expand upon.
   - [ ] You must have a header for this page.  It should have a few of the following features:
@@ -58,53 +58,53 @@ This iteration covers project setup and starting the creation of the game.  Are 
 - [x] Can record a click.
 - [x] Can retrieve a click count.
 
-#### FEATURE : Be able to purchase the first _Clicking Companion_ with 100 clicks from your click count.
-> As a user, I want to be able to purchase _Clicking Companions_, so that I don't have to keep clicking a button all day.
-- [x] Can retrieve a _Clicking Companion_ count.
-- [x] Can add to the _Clicking Companion_ count.
-- [x] Subtract the amount of the _Clicking Companion_ cost from your click count.
+#### FEATURE : Be able to purchase the first _AutoClicker_ with 100 clicks from your click count.
+> As a user, I want to be able to purchase _AutoClickers_, so that I don't have to keep clicking a button all day.
+- [x] Can retrieve a _AutoClicker_ count.
+- [x] Can add to the _AutoClicker_ count.
+- [x] Subtract the amount of the _AutoClicker_ cost from your click count.
 
-#### FEATURE : The cost of each _Clicking Companion_ will go up with each purchase.
+#### FEATURE : The cost of each _AutoClicker_ will go up with each purchase.
 > As a game designer, I want the game to become more difficult as the game progresses, so that users will continue to play the game.
-- [x] Increase the cost of the second _Clicking Companion_ by an additional ten percent to 110.
-- [x] Increase the cost of every additional _Clicking Companion_ by an additional ten percent.
+- [x] Increase the cost of the second _AutoClicker_ by an additional ten percent to 110.
+- [x] Increase the cost of every additional _AutoClicker_ by an additional ten percent.
 
-#### FEATURE : Ensure that there are enough clicks to buy a _Clicking Companion_.
-> As the game designer, I want to ensure that players have to put the game into a proper state to be able to purchase a _Clicking Companion_, so that the game has a challenge.
-- [x] Prevent the _Clicking Companion_ count from going up if there are not enough clicks to purchase a _Companion_.
+#### FEATURE : Ensure that there are enough clicks to buy a _AutoClicker_.
+> As the game designer, I want to ensure that players have to put the game into a proper state to be able to purchase a _AutoClicker_, so that the game has a challenge.
+- [x] Prevent the _AutoClicker_ count from going up if there are not enough clicks to purchase a _Companion_.
 
-#### FEATURE : The amount of _Clicking Companions_ affect the amount of clicks added when an 'Add auto clicks' event is called.
-> As a user, I want to be able to purchase _Clicking Companions_, so that I don't have to keep clicking a button all day.
-- When the 'add auto clicks' event is executed, add the amount of _Clicking Companions_ to the click total.
+#### FEATURE : The amount of _AutoClickers_ affect the amount of clicks added when an 'Add auto clicks' event is called.
+> As a user, I want to be able to purchase _AutoClickers_, so that I don't have to keep clicking a button all day.
+- When the 'add auto clicks' event is executed, add the amount of _AutoClickers_ to the click total.
 
 ### Iteration 2
-This iteration covers the creation of the _Collective Culmination Compounders_, the higher your _Collective Culmination Compounders_ count the more each click you take is worth.
+This iteration covers the creation of the _Donut Multipliers_, the higher your _Donut Multipliers_ count the more each click you take is worth.
 
-#### FEATURE : Be able to purchase the first _Collective Culmination Compounder_ with 10 clicks from your click count.
-> As a user, I want to make my clicks more powerful, so that I can make the work to get more _Clicking Companions_ easier.
-- Can retrieve a _Collective Culmination Compounder_ count.
-- Can add to the _Collective Culmination Compounder_ count.
-- Subtract the amount of the _Collective Culmination Compounder_ cost from the click count.
+#### FEATURE : Be able to purchase the first _Donut Multiplier_ with 10 clicks from your click count.
+> As a user, I want to make my clicks more powerful, so that I can make the work to get more _AutoClickers_ easier.
+- Can retrieve a _Donut Multiplier_ count.
+- Can add to the _Donut Multiplier_ count.
+- Subtract the amount of the _Donut Multiplier_ cost from the click count.
 
-#### FEATURE : The cost of each _Collective Culmination Compounder_ will go up with each purchase.
+#### FEATURE : The cost of each _Donut Multiplier_ will go up with each purchase.
 > As a game designer, I want the game to become more difficult as the game progresses, so that users will continue to play the game.
-- Increase the cost of the second __Collective Culmination Compounder_ by an additional ten percent to 11.
-- Increase the cost of every additional _Collective Culmination Compounder_ by an additional ten percent.
+- Increase the cost of the second __Donut Multiplier_ by an additional ten percent to 11.
+- Increase the cost of every additional _Donut Multiplier_ by an additional ten percent.
 
 
-#### FEATURE : Ensure that there are enough clicks to buy a _Collective Culmination Compounder_.
-> As the game designer, I want to ensure that players have to put the game into a proper state to be able to purchase a _Collective Culmination Compounder_, so that the game has a challenge.
-- Prevent the _Collective Culmination Compounder_ count from going up if there are not enough clicks to purchase a _Compounder_.
+#### FEATURE : Ensure that there are enough clicks to buy a _Donut Multiplier_.
+> As the game designer, I want to ensure that players have to put the game into a proper state to be able to purchase a _Donut Multiplier_, so that the game has a challenge.
+- Prevent the _Donut Multiplier_ count from going up if there are not enough clicks to purchase a _Compounder_.
 
-#### FEATURE : The first _Collective Culmination Compounder_ should increase the value of a click 1.2x.
-> As a user, I want to make my clicks more powerful, so that I can make the work to get more _Clicking Companions_ easier.
+#### FEATURE : The first _Donut Multiplier_ should increase the value of a click 1.2x.
+> As a user, I want to make my clicks more powerful, so that I can make the work to get more _AutoClickers_ easier.
 - Increase the amount of clicks added to the click count by 1.2 after the first _Compounder_ is purchased.
 
-#### FEATURE : The amount the subsequent _Collective Culmination Compounders_ click bonus will go up exponentially.
-> As a CEO, I want my players hard earned _Collective Culmination Compounders_ to make a big impact, so that they keep playing the game.
+#### FEATURE : The amount the subsequent _Donut Multipliers_ click bonus will go up exponentially.
+> As a CEO, I want my players hard earned _Donut Multipliers_ to make a big impact, so that they keep playing the game.
 - Increase the click value multiplier to 1.2 to the _x_th power, where _x_ is the amount of the _Compounders_ count.
 
-#### FEATURE : The _Collective Culmination Compounders_ click bonus will apply to clicks from the _Click Companions_.
+#### FEATURE : The _Donut Multipliers_ click bonus will apply to clicks from the _Click Companions_.
 > As a user, I want to see my click investments work together to get me more clicks, so that I can have all the clicks.
 - When an 'Add auto clicks' event is executed, increase the value of each auto click by the amount of the click value multiplier.
 
@@ -120,13 +120,13 @@ This iteration will prepare the html document for the game.  Open the index.html
 > As a player, I want to know how many clicks I have, so that I can track my progress.
 - Create an element that will provide the user with the click count.
 
-#### FEATURE : Create a section for the _Clicking Companions_
-> As a user, I want to be able to buy and see how many _Clicking Companions_ I have, so that I don't have to keep clicking all the time.
-- Create an section of elements that include a purchase button and a count of _Clicking Companions_.
+#### FEATURE : Create a section for the _AutoClickers_
+> As a user, I want to be able to buy and see how many _AutoClickers_ I have, so that I don't have to keep clicking all the time.
+- Create an section of elements that include a purchase button and a count of _AutoClickers_.
 
-#### FEATURE : Create a section for the _Collective Culmination Compounders_
-> As a user, I want to be able to buy and see how many _Collective Culmination Compounders_ I have, so that my clicks can become super powered.
-- Create an section of elements that include a purchase button and a count of _Collective Culmination Compounders_.
+#### FEATURE : Create a section for the _Donut Multipliers_
+> As a user, I want to be able to buy and see how many _Donut Multipliers_ I have, so that my clicks can become super powered.
+- Create an section of elements that include a purchase button and a count of _Donut Multipliers_.
 
 #### FEATURE : Create a header with a link to a drop down element with information about the Company.
 > As the marketing director, I want the customers to be able to find out more information about Coo Coo Computing Challengers, so that they will buy more stuff from us.
@@ -147,12 +147,12 @@ This iteration will wire up your ClickCounter.js file to the index.html file and
 > As a user, I want to see my click score go up when I click the clicker button, so that I can be rewarded for my hard work.
 - When the clicker button is pressed the click count element should change value.
 
-#### FEATURE : The _Clicking Companions_ and _Collective Culmination Compounders_ purchase button should be grayed out and unresponsive if there are not enough clicks to buy the next item.
+#### FEATURE : The _AutoClickers_ and _Donut Multipliers_ purchase button should be grayed out and unresponsive if there are not enough clicks to buy the next item.
 > As a game designer, I want the user to have a visual clue that they cannot perform a game action, so that the user isn't frustrated by clicking buttons that can not do anything.
 - When the click count is below the cost of a purchasable item, grey out or change the appearance of the button.
 - Clicking the button when an item is cannot be purchased should not perform any action.
 
-#### FEATURE : The _Clicking Companion_ count and the _Collective Culmination Compounders_ count should be displayed.
+#### FEATURE : The _AutoClicker_ count and the _Donut Multipliers_ count should be displayed.
 > As a user, I want to know how many _Companions_ and _Compounders_ I have, so that I can brag to my friends.
 - The amount of items purchased should be displayed in the same area as the button to purchase them.
 - The amount of items purchased should be updated after each purchase.
@@ -161,9 +161,9 @@ This iteration will wire up your ClickCounter.js file to the index.html file and
 > As a user, I want to know how many clicks each click on the clicker button is worth, so that I can see the effect of the _Compounders_ on my clicking.
 - Display the click multiplier value in the clicker button text or in an element somewhere close to the clicker button.
 
-#### FEATURE : The _Clicking Companions_ and _Collective Culmination Compounders_ price in clicks should be displayed.  
-> As a user, I want to know how many clicks I have to click before I can purchase a _Clicking Companion_ or _Collective Culmination Compounder_, so that I know when I get to stop clicking.
-- Display the cost of the _Clicking Companions_ and _Collective Culmination Compounders_ in their purchase button or in an element nearby.
+#### FEATURE : The _AutoClickers_ and _Donut Multipliers_ price in clicks should be displayed.  
+> As a user, I want to know how many clicks I have to click before I can purchase a _AutoClicker_ or _Donut Multiplier_, so that I know when I get to stop clicking.
+- Display the cost of the _AutoClickers_ and _Donut Multipliers_ in their purchase button or in an element nearby.
 - Update the costs whenever the price is changed.
 
 ### Iteration 5 
